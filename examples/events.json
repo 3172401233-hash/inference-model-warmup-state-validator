@@ -1,0 +1,67 @@
+{
+  "events": [
+    {
+      "type": "manifest",
+      "instanceId": "inst-healthy",
+      "ts": 1000,
+      "version": "v3.1.0",
+      "totalShards": 3,
+      "expectedWeight": "sha256:aaa"
+    },
+    { "type": "shard_loaded", "instanceId": "inst-healthy", "ts": 1100, "shardId": "s0" },
+    { "type": "shard_loaded", "instanceId": "inst-healthy", "ts": 1200, "shardId": "s1" },
+    { "type": "probe", "instanceId": "inst-healthy", "ts": 1250, "healthy": true },
+    { "type": "route_decision", "instanceId": "inst-healthy", "ts": 1260, "action": "admit" },
+    { "type": "shard_loaded", "instanceId": "inst-healthy", "ts": 1300, "shardId": "s2" },
+    {
+      "type": "weight_loaded",
+      "instanceId": "inst-healthy",
+      "ts": 1400,
+      "version": "v3.1.0",
+      "weightDigest": "sha256:aaa"
+    },
+    { "type": "kernel_init", "instanceId": "inst-healthy", "ts": 1600, "ready": true },
+    { "type": "route_decision", "instanceId": "inst-healthy", "ts": 1700, "action": "admit" },
+
+    {
+      "type": "manifest",
+      "instanceId": "inst-shard-fail",
+      "ts": 1000,
+      "version": "v3.1.0",
+      "totalShards": 3,
+      "expectedWeight": "sha256:bbb"
+    },
+    { "type": "shard_loaded", "instanceId": "inst-shard-fail", "ts": 1100, "shardId": "s0" },
+    {
+      "type": "shard_failed",
+      "instanceId": "inst-shard-fail",
+      "ts": 1200,
+      "shardId": "s1",
+      "reason": "disk io error"
+    },
+    { "type": "probe", "instanceId": "inst-shard-fail", "ts": 1300, "healthy": true },
+    { "type": "route_decision", "instanceId": "inst-shard-fail", "ts": 1310, "action": "admit" },
+
+    {
+      "type": "manifest",
+      "instanceId": "inst-rollback",
+      "ts": 1000,
+      "version": "v3.1.0",
+      "totalShards": 2,
+      "expectedWeight": "sha256:ccc"
+    },
+    { "type": "shard_loaded", "instanceId": "inst-rollback", "ts": 1100, "shardId": "s0" },
+    { "type": "shard_loaded", "instanceId": "inst-rollback", "ts": 1200, "shardId": "s1" },
+    {
+      "type": "weight_loaded",
+      "instanceId": "inst-rollback",
+      "ts": 1300,
+      "version": "v3.1.0",
+      "weightDigest": "sha256:ccc"
+    },
+    { "type": "kernel_init", "instanceId": "inst-rollback", "ts": 1400, "ready": true },
+    { "type": "route_decision", "instanceId": "inst-rollback", "ts": 1500, "action": "admit" },
+    { "type": "rollback", "instanceId": "inst-rollback", "ts": 1800, "version": "v3.0.9" },
+    { "type": "route_decision", "instanceId": "inst-rollback", "ts": 1900, "action": "admit" }
+  ]
+}

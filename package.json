@@ -1,0 +1,14 @@
+{
+  "name": "inference-model-warmup-state-validator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "离线校验模型实例的 shard 加载、权重摘要、kernel 初始化、探针、流量路由与回滚，计算安全接入点",
+  "engines": {
+    "node": ">=24.16.0"
+  },
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/cli.js"
+  }
+}

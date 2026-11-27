@@ -1,0 +1,7 @@
+{"type":"manifest","instanceId":"inst-jsonl","ts":1000,"version":"v3.1.0","totalShards":2,"expectedWeight":"sha256:z"}
+{"type":"shard_loaded","instanceId":"inst-jsonl","ts":1100,"shardId":"s0"}
+{"type":"shard_loaded","instanceId":"inst-jsonl","ts":1200,"shardId":"s1"}
+{"type":"weight_loaded","instanceId":"inst-jsonl","ts":1300,"weightDigest":"sha256:z"}
+{"type":"kernel_init","instanceId":"inst-jsonl","ts":1500,"ready":true}
+{"type":"probe","instanceId":"inst-jsonl","ts":1550,"healthy":true}
+{"type":"route_decision","instanceId":"inst-jsonl","ts":1600,"action":"admit"}
